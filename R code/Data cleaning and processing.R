@@ -35,3 +35,4 @@ real_dividend = Dividend * (CPI[dim(Data)[1]]/CPI)/12
 
 # save each market in "RData" folder to be called later
 save.image(paste0("RData/",name,".RData"))
+
