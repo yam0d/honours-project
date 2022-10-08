@@ -1,6 +1,4 @@
-# Cleaning and processing file for all markets
-# Add Index folder and name after Excel/
-# e.g. reading in Bloomberg S&P 500 data is "Excel/SP500/SP500"
+# Cleaning and processing file for each markets
 # Check file configuration in "Excel" folder for naming convention
 
 # Clear environment 
@@ -9,9 +7,20 @@ rm(list = ls())
 # Load packages 
 library(readxl)
 
+# set working directory to "honour-project" folder
+setwd("~/GitHub/rcode/honours-project")
+
+# Name of index
+# If you want to read in the Robert Shiller datasets you must take note of the
+# name convention.
+# e.g. name = "RS SP500"
+
+name = "SP500"      # enter different name for different index
+
 # Read in data from "Excel" folder
+# Making appropriate variables numeric
 # Clean data by removing missing data (N/A)
-Data = read_excel("Excel/SP500/SP500.xlsx")
+Data = read_excel(paste0("Excel/",name,"/",name,".xlsx"))
 Data = Data[dim(Data)[1]:1,] # reverse order for time series
 Data$Dividend = as.numeric(Data$Dividend) # numeric variables
 Data$Price = as.numeric(Data$Price) # numeric variables
@@ -25,4 +34,4 @@ real_price = Price * (CPI[dim(Data)[1]]/CPI)
 real_dividend = Dividend * (CPI[dim(Data)[1]]/CPI)/12 
 
 # save each market in "RData" folder to be called later
-save.image("RData/SP500.RData")
+save.image(paste0("RData/",name,".RData"))
