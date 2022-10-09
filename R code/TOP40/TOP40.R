@@ -5,6 +5,8 @@
 rm(list = ls())
 
 # Load packages 
+library(devtools)
+library(silvermantest)
 library(forecast)
 
 # set working directory to "honour-project" folder
@@ -15,4 +17,17 @@ name = "TOP40"
 # load in .RData
 load(paste0("RData/",name,".RData"))
 
-system.time({a = rnorm(100000000,0,1)})
+time = system.time({
+  
+  
+  
+  
+  
+  
+  })
+
+# check time elpapsed
+time
+
+# update loaded "TOP40.RData" file 
+save.image(paste0("RData/",name,".RData"))

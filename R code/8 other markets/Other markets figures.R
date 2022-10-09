@@ -27,10 +27,10 @@ dev.off()
 
 # png saved
 png(paste0("Images/",name,"/distortion.png"), width = 500, height = 500) 
-plot(dis_10, main = paste0("Distortion of 
+plot(dis_min, main = paste0("Distortion of 
 ",name,"(",m,"/",y,"-12/2021) from Bloomberg data"), 
-     ylab = "log real price", lwd = 2, col = "blue")
-lines(dis_min, col = "green", lwd = 2)
+     ylab = "log real price", lwd = 2, col = "green")
+lines(dis_10, col = "blue", lwd = 2)
 legend("topleft", legend = c("distortion using g of 10 years",
                              "distortion using g of min obj"),
        col = c("blue", "green"), 
@@ -39,6 +39,7 @@ abline(h=0, col = 1, lty = 2)
 dev.off()
 
 # png saved
+# produce a error for name = "NIKKEI"
 png(paste0("Images/",name,"/hist using g = 10.png"), width = 500, height = 500) 
 hist(dis_10, breaks = 100, main = paste0("Distribution of distortion
 ",name,"(",m,"/",y,"-12/2021) from Bloomberg data"))
@@ -51,6 +52,7 @@ hist(dis_min, breaks = 100, main = paste0("Distribution of distortion
 dev.off()
 
 # png saved
+# produce a error for name = "NIKKEI"
 png(paste0("Images/",name,"/smooth using g = 10.png"), width = 500, height = 500) 
 plot(density(dis_10), lwd = 2, yaxs = "i",xlab ="Distortion",
      main = paste0("Distribution of distortion

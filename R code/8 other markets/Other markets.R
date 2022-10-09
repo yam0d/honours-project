@@ -64,7 +64,7 @@ objective = function(P, real_dividend, r, g){
   return(sum(abs(P-FV(real_dividend, length(real_dividend), r, g))^2))
 }
 
-#
+# growth rate when minimising the objective function
 g_min = optim(fn = objective, par = c(0.001), r = r, 
              P = real_price, 
              real_dividend = real_dividend, 
@@ -88,10 +88,13 @@ dis_min = ts(log_realprice - log(FV_min), start = c(y,m), frequency = 12)
 x1 = as.vector(dis_10)
 x2 = as.vector(dis_min)
 
+
+# Will generate error when name = "NIKKEI" since g>d
+# overwrite error using try()
 # fitting ARMA(1,1) to the data
-fit1 = Arima(x1, order = c(1,0,1))
+fit1 = try(Arima(x1, order = c(1,0,1)))
 # Confidence intervals of parameters
-ci1 = confint(fit1)
+ci1 = try(confint(fit1))
 
 # fitting ARMA(1,1) to the data
 fit2 = Arima(x2, order = c(1,0,1))
@@ -101,3 +104,4 @@ ci2 = confint(fit2)
 # update loaded ".RData" file 
 # save each market in "RData" folder to be called later
 save.image(paste0("RData/",name,".RData"))
+
