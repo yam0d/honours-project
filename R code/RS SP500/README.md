@@ -1,2 +1,0 @@
-# honours-project
-

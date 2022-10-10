@@ -21,7 +21,10 @@ load(paste0("RData/",name,".RData"))
 # using the GAR for the average dividend growth rate for the last 10
 # and a g obtained when min obj.
 
-# choosing the time period index of the last 10 years
+# choosing the time period index of the last 10 years.
+# for name = "SP500" the growth rate of the last 20 and 30 years can be
+# obtained by setting the starting date to "2001-01-31" and "1991-01-31"
+# respectively.
 index = real_dividend[which(Data == "2011-01-31"):which(Data == "2020-12-31")]
 
 # geometric average monthy growth rate of real dividends
@@ -94,12 +97,12 @@ x2 = as.vector(dis_min)
 # fitting ARMA(1,1) to the data
 fit1 = try(Arima(x1, order = c(1,0,1)))
 # Confidence intervals of parameters
-ci1 = try(confint(fit1))
+fit1_ci = try(confint(fit1))
 
 # fitting ARMA(1,1) to the data
 fit2 = Arima(x2, order = c(1,0,1))
 # Confidence intervals of parameters
-ci2 = confint(fit2)
+fit2_ci = confint(fit2)
 
 # update loaded ".RData" file 
 # save each market in "RData" folder to be called later

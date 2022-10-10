@@ -39,7 +39,7 @@ abline(h=0, col = 1, lty = 2)
 dev.off()
 
 # png saved
-# produce a error for name = "NIKKEI"
+# produces a error for name = "NIKKEI"
 png(paste0("Images/",name,"/hist using g = 10.png"), width = 500, height = 500) 
 hist(dis_10, breaks = 100, main = paste0("Distribution of distortion
 ",name,"(",m,"/",y,"-12/2021) from Bloomberg data"))
@@ -52,7 +52,7 @@ hist(dis_min, breaks = 100, main = paste0("Distribution of distortion
 dev.off()
 
 # png saved
-# produce a error for name = "NIKKEI"
+# produces a error for name = "NIKKEI"
 png(paste0("Images/",name,"/smooth using g = 10.png"), width = 500, height = 500) 
 plot(density(dis_10), lwd = 2, yaxs = "i",xlab ="Distortion",
      main = paste0("Distribution of distortion
