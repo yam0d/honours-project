@@ -47,8 +47,8 @@ dev.off()
 png(paste0("Images/",name,"/log fundamental uni.png"), width = 500, height = 500)
 plot(simulations[[1]], main = "Monthly log real price of SP500 from 10/2002-12/2021 
      Robert Shiller data", 
-     ylab = "log real price", lwd = 2, ylim = c(9.8, 12))
-for (i in 2:1000) {
+     ylab = "log real price", lwd = 2, ylim = c(4, 9))
+for (i in 1:1000) {
   lines(simulations[[i]], col = i, lwd = 2)
 }
 lines(log_realprice, lwd = 2)
@@ -117,7 +117,7 @@ legend("topleft", legend = c("using g of 10 years"),
 dev.off()
 
 png(paste0("Images/",name,"/fit1 arima(4,1,1) den.png"), width = 500, height = 500)
-plot(density(fit2_sim[[1]]), xlab = "Distortion", main = "Distortion of ARMA(4,1,1)",
+plot(density(fit1_sim[[1]]), xlab = "Distortion", main = "Distortion of ARMA(4,1,1)",
      xlim = c(-8,8), 
      ylim=c(0,1.5))
 for (i in 2:1000) {
@@ -133,9 +133,9 @@ png(paste0("Images/",name,"/fit2 arima(2,0,2).png"), width = 500, height = 500)
 plot(fit2_sim[[1]], ylab = "Distortion", 
      main = "ARMA(2,2) simulations for 1740 monthly distortions
      from the Robert Shiller data set from 01/1871 - 12/2015 
-     using g of last 10 years", lwd = 2, ylim = c(-8,8))
+     using g of last 10 years", lwd = 2, ylim = c(-2,2))
 for (i in 2:1000) {
-  lines(fit1_sim[[i]], col = i, lwd = 2)
+  lines(fit2_sim[[i]], col = i, lwd = 2)
 }
 lines(density(x1), lwd = 2, col = "blue")
 abline(h=0, col="black", lty = 2, lwd = 2)
@@ -146,7 +146,7 @@ dev.off()
 
 png(paste0("Images/",name,"/fit2 arima(2,0,2) den.png"), width = 500, height = 500)
 plot(density(fit2_sim[[1]]), xlab = "Distortion", main = "Distortion of ARMA(2,2)",
-     xlim = c(-8,8), 
+     xlim = c(-2,2), 
      ylim=c(0,1.5))
 for (i in 2:1000) {
   lines(density(fit2_sim[[i]]), col = i, lwd = 2)
@@ -161,7 +161,7 @@ png(paste0("Images/",name,"/fit3 arima(1,0,1).png"), width = 500, height = 500)
 plot(fit3_sim[[1]], ylab = "Distortion", 
      main = "ARMA(1,1) simulations for 1740 monthly distortions
      from the Robert Shiller data set from 01/1871 - 12/2015 
-     using g of last 10 years", lwd = 2, ylim = c(-8,8))
+     using g of last 10 years", lwd = 2, ylim = c(-2,2))
 for (i in 2:1000) {
   lines(fit3_sim[[i]], col = i, lwd = 2)
 }
@@ -174,7 +174,7 @@ dev.off()
 
 png(paste0("Images/",name,"/fit3 arima(1,0,1) den.png"), width = 500, height = 500)
 plot(density(fit3_sim[[1]]), xlab = "Distortion", main = "Distortion of ARMA(1,1)",
-     xlim = c(-8,8), 
+     xlim = c(-2,2), 
      ylim=c(0,1.5))
 for (i in 2:1000) {
   lines(density(fit3_sim[[i]]), col = i, lwd = 2)

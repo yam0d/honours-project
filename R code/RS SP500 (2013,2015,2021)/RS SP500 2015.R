@@ -24,17 +24,17 @@ time = system.time({
   # using the GAR for the average dividend growth rate for the 10
   # and 15 years and g over the whole dataset.
   
-  index = real_dividend[which(Data == "2006-01-31"):which(Data == "2015-12-31")]
+  index = real_dividend[which(Data == "2005-01-31"):which(Data == "2014-12-31")]
   return_dividend = diff(index) / index[length(index)] + 1 
   # growth rate of last 10 years
   g_10 = prod(return_dividend)^(1/length(return_dividend)) - 1
   
-  index = real_dividend[which(Data == "1996-01-31"):which(Data == "2015-12-31")]
+  index = real_dividend[which(Data == "1995-01-31"):which(Data == "2014-12-31")]
   return_dividend = diff(index) / index[length(index)] + 1
   # growth rate of last 20 years
   g_20 = prod(return_dividend)^(1/length(return_dividend)) - 1
   
-  index = real_dividend[which(Data == "1986-01-31"):which(Data == "2015-12-31")]
+  index = real_dividend[which(Data == "1985-01-31"):which(Data == "2014-12-31")]
   return_dividend = diff(index) / index[length(index)] + 1 
   # growth rate of last 30 years
   g_30 = prod(return_dividend)^(1/length(return_dividend)) - 1
@@ -228,7 +228,7 @@ time = system.time({
   for (i in 1:1000) {
     p_total[i] = p_test[[i]]@p_value>0.05
   }
-  sum(l)
+  sum(p_total)
   
   # getting the smallest bandwith value so that the gaussian kernel 
   # density estimate of the given data x has k mode where k = 1,2,3,4
@@ -244,7 +244,7 @@ time = system.time({
 
 # check time elapsed in seconds
 time
-# roughly 6 hours to run
+# roughly 5 hours to run
 
 # update loaded "RS SP500 2015.RData" file 
 save.image(paste0("RData/",name,".RData"))

@@ -164,6 +164,7 @@ time = system.time({
   # different selection criteria
   fit1_AIC = auto.arima(x1, trace=TRUE, ic = "aic")
   fit1_AICC = auto.arima(x1, trace=TRUE, ic = "aicc")
+  fit1_AICC$aic; fit1_AICC$bic; fit1_AICC$aicc
   fit1_BIC = auto.arima(x1, trace=TRUE, ic = "bic")
   
   # 95% confidence interval 
@@ -193,6 +194,7 @@ time = system.time({
   # different selection criteria
   fit2_AIC = auto.arima(x2, trace=TRUE, ic = "aic")
   fit2_AICC = auto.arima(x2, trace=TRUE, ic = "aicc")
+  fit2_AICC$aic; fit2_AICC$bic; fit2_AICC$aicc
   fit2_BIC = auto.arima(x2, trace=TRUE, ic = "bic")
   
   # 95% confidence interval 
@@ -222,6 +224,7 @@ time = system.time({
   # different selection criteria
   fit3_AIC = auto.arima(x3, trace=TRUE, ic = "aic")
   fit3_AICC = auto.arima(x3, trace=TRUE, ic = "aicc")
+  fit3_AICC$aic; fit3_AICC$bic; fit3_AICC$aicc
   fit3_BIC = auto.arima(x3, trace=TRUE, ic = "bic")
   
   # 95% confidence interval 
@@ -251,6 +254,7 @@ time = system.time({
   # different selection criteria
   fit4_AIC = auto.arima(x4, trace=TRUE, ic = "aic")
   fit4_AICC = auto.arima(x4, trace=TRUE, ic = "aicc")
+  fit4_AICC$aic; fit4_AICC$bic; fit4_AICC$aicc
   fit4_BIC = auto.arima(x4, trace=TRUE, ic = "bic")
   
   # 95% confidence interval 
