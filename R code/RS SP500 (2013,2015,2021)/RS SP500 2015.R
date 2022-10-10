@@ -137,12 +137,15 @@ time = system.time({
   # fitting a arma(1,1), arma(2,2) and using auto.arima()
   
   fit1 = auto.arima(x1, trace=TRUE)
+  fit1$aic; fit1$bic; fit1$aicc
   fit1_ci = confint(fit1)
   
   fit2 = Arima(x1, order = c(2,0,2))
+  fit2$aic; fit2$bic; fit2$aicc
   fit2_ci = confint(fit2)
   
   fit3 = Arima(x1, order = c(1,0,1))
+  fit3$aic; fit3$bic; fit3$aicc
   fit3_ci = confint(fit3)
   
   # 1000 simulations from each of the models
@@ -241,9 +244,7 @@ time = system.time({
 
 # check time elapsed in seconds
 time
+# roughly 6 hours to run
 
 # update loaded "RS SP500 2015.RData" file 
 save.image(paste0("RData/",name,".RData"))
-
-
-

@@ -138,21 +138,25 @@ time = system.time({
   
   # fitting ARMA(1,1) to the data
   arma1 = try(Arima(x1, order = c(1,0,1)))
+  arma1$aic; arma1$bic; arma1$aicc
   # Confidence intervals of parameters
   arma1_ci = try(confint(arma1))
   
   # fitting ARMA(1,1) to the data
   arma2 = Arima(x2, order = c(1,0,1))
+  arma2$aic; arma2$bic; arma2$aicc
   # Confidence intervals of parameters
   arma2_ci = confint(arma2)
   
   # fitting ARMA(1,1) to the data
   arma3 = Arima(x3, order = c(1,0,1))
+  arma3$aic; arma3$bic; arma3$aicc
   # Confidence intervals of parameters
   arma3_ci = confint(arma3)
   
   # fitting ARMA(1,1) to the data
   arma4 = Arima(x4, order = c(1,0,1))
+  arma4$aic; arma4$bic; arma4$aicc
   # Confidence intervals of parameters
   arma4_ci = confint(arma4)
   
@@ -341,7 +345,7 @@ time = system.time({
 
 # check time elapsed in seconds
 time
-# roughly 5 hours
+# roughly 5 hours to run
 
 # update loaded "TOP40.RData" file 
 save.image(paste0("RData/",name,".RData"))
