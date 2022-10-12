@@ -241,3 +241,84 @@ legend("topleft", legend = c("using g of min obj"),
        col = c("green"), 
        lty = 1 , bty = "n", lwd = 2)
 dev.off()
+
+# contour plot for the fundamental value
+png(paste0("Images/",name,"/contour fv.png"), width = 500, height = 500)
+ggplot(data.frame(len = rep(1:231,1000), 
+                  data= unlist(simulations)), 
+       aes(x = len, y = data)) +
+  stat_density2d_filled() + coord_cartesian(ylim=c(9.5,11),
+                                            xlim = c(1,231)) + 
+  expand_limits(x = 1, y = 0) + 
+  ggtitle("Contour plot of log fundamental value paths") + 
+  labs(y = "Log real price", x = "Time")
+dev.off()
+
+# contour plot for the distortion
+png(paste0("Images/",name,"/contour dist.png"), width = 500, height = 500)
+ggplot(data.frame(len = rep(1:231,1000), 
+                  data= unlist(simulations_dist)), 
+       aes(x = len, y = data)) +
+  stat_density2d_filled() + coord_cartesian(ylim=c(-1,1),
+                                            xlim = c(1,231)) + 
+  expand_limits(x = 1, y = 0) + 
+  ggtitle("Contour plot of distortion paths") + 
+  labs(y = "Distortion", x = "Time") + 
+  geom_hline(yintercept=0, linetype="dashed", color = "black", size = 1)
+dev.off()
+
+# contout plot for arima simulations when using a g_10
+png(paste0("Images/",name,"/contour fit1.png"), width = 500, height = 500)
+ggplot(data.frame(len = rep(1:232,1000), 
+                  data= unlist(fit1_sim)), 
+       aes(x = len, y = data)) +
+  stat_density2d_filled() + coord_cartesian(ylim=c(-1,1),
+                                            xlim = c(1,232)) + 
+  expand_limits(x = 1, y = 0) + 
+  ggtitle("Contour plot of 1000 ARIMA(0,1,0) from a distortion using a 
+growth rate of the last 10 years") + 
+  labs(y = "Distortion", x = "Time") + 
+  geom_hline(yintercept=0, linetype="dashed", color = "black", size = 1)
+dev.off()
+
+# contout plot for arima simulations when using a g_15
+png(paste0("Images/",name,"/contour fit2.png"), width = 500, height = 500)
+ggplot(data.frame(len = rep(1:232,1000), 
+                  data= unlist(fit2_sim)), 
+       aes(x = len, y = data)) +
+  stat_density2d_filled() + coord_cartesian(ylim=c(-1,1),
+                                            xlim = c(1,232)) + 
+  expand_limits(x = 1, y = 0) + 
+  ggtitle("Contour plot of 1000 ARIMA(0,1,0) from a distortion using a
+growth rate of the last 15 years") + 
+  labs(y = "Distortion", x = "Time") + 
+  geom_hline(yintercept=0, linetype="dashed", color = "black", size = 1)
+dev.off()
+
+# contout plot for arima simulations when using a g_w
+png(paste0("Images/",name,"/contour fit3.png"), width = 500, height = 500)
+ggplot(data.frame(len = rep(1:232,1000), 
+                  data= unlist(fit3_sim)), 
+       aes(x = len, y = data)) +
+  stat_density2d_filled() + coord_cartesian(ylim=c(-1,1),
+                                            xlim = c(1,232)) + 
+  expand_limits(x = 1, y = 0) + 
+  ggtitle("Contour plot of 1000 ARIMA(0,1,0) from a distortion using a
+growth rate over the whole dataset") + 
+  labs(y = "Distortion", x = "Time") + 
+  geom_hline(yintercept=0, linetype="dashed", color = "black", size = 1)
+dev.off()
+
+# contout plot for arima simulations when using a g_min
+png(paste0("Images/",name,"/contour fit4.png"), width = 500, height = 500)
+ggplot(data.frame(len = rep(1:232,1000), 
+                  data= unlist(fit4_sim)), 
+       aes(x = len, y = data)) +
+  stat_density2d_filled() + coord_cartesian(ylim=c(-1,1),
+                                            xlim = c(1,232)) + 
+  expand_limits(x = 1, y = 0) + 
+  ggtitle("Contour plot of 1000 ARIMA(0,1,0) from a distortion using a
+growth rate minimising the objective function") + 
+  labs(y = "Distortion", x = "Time") + 
+  geom_hline(yintercept=0, linetype="dashed", color = "black", size = 1)
+dev.off()

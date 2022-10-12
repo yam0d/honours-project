@@ -185,3 +185,16 @@ legend("topleft", legend = c("using g of 10 years"),
        lty = 1 , bty = "n", lwd = 2)
 dev.off()
 
+# log FV in list of 1000 paths
+
+dat. = unlist(simulations)
+dat = as.data.frame(dat.)
+len = rep(1:1740,1000)
+dat = data.frame(x = len,y = dat.)
+
+faithful_p <- ggplot(dat, aes(x = x, y = x))
+
+faithful_p +
+  geom_point() +
+  stat_density2d()
+
