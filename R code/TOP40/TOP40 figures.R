@@ -275,7 +275,7 @@ ggplot(data.frame(len = rep(1:232,1000),
   stat_density2d_filled() + coord_cartesian(ylim=c(-1,1),
                                             xlim = c(1,232)) + 
   expand_limits(x = 1, y = 0) + 
-  ggtitle("Contour plot of 1000 ARIMA(0,1,0) from a distortion using a 
+  ggtitle("Contour plot of 1000 ARIMA(0,1,0) simulations from a distortion using a 
 growth rate of the last 10 years") + 
   labs(y = "Distortion", x = "Time") + 
   geom_hline(yintercept=0, linetype="dashed", color = "black", size = 1)
@@ -289,7 +289,7 @@ ggplot(data.frame(len = rep(1:232,1000),
   stat_density2d_filled() + coord_cartesian(ylim=c(-1,1),
                                             xlim = c(1,232)) + 
   expand_limits(x = 1, y = 0) + 
-  ggtitle("Contour plot of 1000 ARIMA(0,1,0) from a distortion using a
+  ggtitle("Contour plot of 1000 ARIMA(0,1,0) simulations from a distortion using a
 growth rate of the last 15 years") + 
   labs(y = "Distortion", x = "Time") + 
   geom_hline(yintercept=0, linetype="dashed", color = "black", size = 1)
@@ -303,7 +303,7 @@ ggplot(data.frame(len = rep(1:232,1000),
   stat_density2d_filled() + coord_cartesian(ylim=c(-1,1),
                                             xlim = c(1,232)) + 
   expand_limits(x = 1, y = 0) + 
-  ggtitle("Contour plot of 1000 ARIMA(0,1,0) from a distortion using a
+  ggtitle("Contour plot of 1000 ARIMA(0,1,0) simulations from a distortion using a
 growth rate over the whole dataset") + 
   labs(y = "Distortion", x = "Time") + 
   geom_hline(yintercept=0, linetype="dashed", color = "black", size = 1)
@@ -317,7 +317,7 @@ ggplot(data.frame(len = rep(1:232,1000),
   stat_density2d_filled() + coord_cartesian(ylim=c(-1,1),
                                             xlim = c(1,232)) + 
   expand_limits(x = 1, y = 0) + 
-  ggtitle("Contour plot of 1000 ARIMA(0,1,0) from a distortion using a
+  ggtitle("Contour plot of 1000 ARIMA(0,1,0) simulations from a distortion using a
 growth rate minimising the objective function") + 
   labs(y = "Distortion", x = "Time") + 
   geom_hline(yintercept=0, linetype="dashed", color = "black", size = 1)

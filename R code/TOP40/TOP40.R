@@ -8,6 +8,7 @@ rm(list = ls())
 library(devtools)
 library(silvermantest)
 library(forecast)
+library(ggplot2)
 
 # set working directory to "honour-project" folder
 setwd("~/GitHub/rcode/honours-project")
