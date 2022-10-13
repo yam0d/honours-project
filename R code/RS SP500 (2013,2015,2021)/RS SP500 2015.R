@@ -221,7 +221,7 @@ time = system.time({
   # vs multimodal.
   p_test = list()
   for (i in 1:1000) {
-    p_test[[i]] = silverman.test(density(x3)$y, k=2, R = 999, digits = 6)
+    p_test[[i]] = silverman.test(density(x3)$y, k=2, R = 10000, digits = 6)
   }
   
   p_total = c()
