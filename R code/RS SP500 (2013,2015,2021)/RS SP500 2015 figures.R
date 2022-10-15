@@ -45,14 +45,26 @@ abline(h=0, col = 1, lty = 2)
 dev.off()
 
 png(paste0("Images/",name,"/log fundamental uni.png"), width = 500, height = 500)
-plot(simulations[[1]], main = "Monthly log real price of SP500 from 10/2002-12/2021 
+plot(simulations[[1]], main = "Monthly log real price of SP500 from 01/1871-12/2015 
      Robert Shiller data", 
      ylab = "log real price", lwd = 2, ylim = c(4, 9))
 for (i in 1:1000) {
   lines(simulations[[i]], col = i, lwd = 2)
 }
-lines(log_realprice, lwd = 2)
 legend("topleft", legend = c("log SP500"), lwd = 2, col = "black", bty = "n")
+dev.off()
+
+png(paste0("Images/",name,"/dist uni.png"), width = 500, height = 500)
+plot(simulations_dist[[1]], main = "Distortion of SP500 from 01/1871-12/2015 
+     Robert Shiller data", 
+     ylab = "log real price", lwd = 2, ylim = c(-3,2)) 
+for (i in 1:1000) {
+  lines(simulations_dist[[i]], col = i, lwd = 2)
+}
+lines(dis_10, col = "blue", lwd = 2)
+legend("topleft", legend = c("distortion using g of 10 years"), lwd = 2, 
+       col = "blue", bty = "n")
+abline(h=0, col="black", lty = 2, lwd = 2)
 dev.off()
 
 png(paste0("Images/",name,"/hist using g = 10.png"), width = 500, height = 500) 

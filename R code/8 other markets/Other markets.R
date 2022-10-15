@@ -22,9 +22,7 @@ load(paste0("RData/",name,".RData"))
 # and a g obtained when min obj.
 
 # choosing the time period index of the last 10 years.
-# for name = "SP500" the growth rate of the last 20 and 30 years can be
-# obtained by setting the starting date to "2001-01-31" and "1991-01-31"
-# respectively.
+# for name = "SP500" check special case at end of code.
 index = real_dividend[which(Data == "2011-01-31"):which(Data == "2020-12-31")]
 
 # geometric average monthy growth rate of real dividends
@@ -103,6 +101,31 @@ fit1_ci = try(confint(fit1))
 fit2 = Arima(x2, order = c(1,0,1))
 # Confidence intervals of parameters
 fit2_ci = confint(fit2)
+
+# special case SP500
+if(name == "SP500"){
+  index = real_dividend[which(Data == "2001-01-31"):which(Data == "2020-12-31")]
+  # geometric average monthy growth rate of real dividends
+  growth = diff(index) / index[length(index)] + 1
+  # growth rate of last 20 years
+  g_20 = prod(growth)^(1/length(growth)) - 1 
+  
+  index = real_dividend[which(Data == "1991-01-31"):which(Data == "2020-12-31")]
+  # geometric average monthy growth rate of real dividends
+  growth = diff(index) / index[length(index)] + 1
+  # growth rate of last 20 years
+  g_30 = prod(growth)^(1/length(growth)) - 1 
+  
+  
+  FV_20 = FV(real_dividend, length(real_dividend), r, g=g_20)
+  FV_30 = FV(real_dividend, length(real_dividend), r, g=g_30)
+  
+  # creating a log price time series object
+  log_realprice = ts(log(real_price), start = c(y,m), frequency = 12)
+  
+  dis_20 = ts(log_realprice - log(FV_20), start = c(y,m), frequency = 12)
+  dis_30 = ts(log_realprice - log(FV_30), start = c(y,m), frequency = 12)
+}
 
 # update loaded ".RData" file 
 # save each market in "RData" folder to be called later
