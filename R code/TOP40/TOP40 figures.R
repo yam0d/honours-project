@@ -338,5 +338,5 @@ coord_cartesian(ylim=c(-1,1),
   expand_limits(x = 1, y = 0) + 
   ggtitle("Contour plot of 1000 ARIMA(0,1,0) simulations from a distortion using a
 growth rate minimising the objective function") + 
-  labs(y = "Distortion", x = "Time") 
+  labs(y = "Distortion", x = "Time")
 dev.off()
