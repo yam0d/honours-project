@@ -324,7 +324,7 @@ growth rate over the whole dataset") +
   labs(y = "Distortion", x = "Time") 
 dev.off()
 
-# contout plot for arima simulations when using a g_min
+# contour plot for arima simulations when using a g_min
 png(paste0("Images/",name,"/contour fit4.png"), width = 500, height = 500)
 ggplot(data.frame(len = rep(1:232,1000), 
                   data= unlist(fit4_sim)), 
@@ -339,4 +339,12 @@ coord_cartesian(ylim=c(-1,1),
   ggtitle("Contour plot of 1000 ARIMA(0,1,0) simulations from a distortion using a
 growth rate minimising the objective function") + 
   labs(y = "Distortion", x = "Time")
+dev.off()
+
+png(paste0("Images/",name,"/g = 10 residuals.png"), width = 500, height = 500) 
+checkresiduals(arma1)
+dev.off()
+
+png(paste0("Images/",name,"/g = min residuals.png"), width = 500, height = 500) 
+checkresiduals(arma4)
 dev.off()
