@@ -12,7 +12,7 @@ setwd("~/GitHub/rcode/honours-project")
 
 # cheat sheet of names:
 # SP500, NIKKEI, NIFTY50, HANG SENG, FTSE100, DAX, BOVEPSA, ASE
-name = "SP500"      # enter different name for different index
+name = "ASE"      # enter different name for different index
 
 # load in .RData
 load(paste0("RData/",name,".RData"))

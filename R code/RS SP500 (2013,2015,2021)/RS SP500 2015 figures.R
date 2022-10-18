@@ -51,7 +51,8 @@ plot(simulations[[1]], main = "Monthly log real price of SP500 from 01/1871-12/2
 for (i in 1:1000) {
   lines(simulations[[i]], col = i, lwd = 2)
 }
-legend("topleft", legend = c("log SP500"), lwd = 2, col = "black", bty = "n")
+lines(log_realprice, col = "black", lwd = 2)
+legend("topleft", legend = c("log real SP500"), lwd = 2, col = "black", bty = "n")
 dev.off()
 
 png(paste0("Images/",name,"/dist uni.png"), width = 500, height = 500)
