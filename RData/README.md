@@ -1,2 +1,3 @@
-# honours-project
-This repo contains the data generating process for index data and charts.
+# R Data
+
+- this folder contains the updated .RData that for a specific market index
