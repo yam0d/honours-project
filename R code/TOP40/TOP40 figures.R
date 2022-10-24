@@ -52,7 +52,7 @@ legend("topleft", legend = c("using g of 10 years",
                              "using g of 15 years",
                              "using g over whole dataset",
                              "using g of min obj"),
-       col = c("red", "blue", "purple", "orange", "green"), 
+       col = c("blue", "purple", "orange", "green"), 
        lty = c(1,1,1,1), bty = "n", lwd = c(2,2,2,2))
 abline(h=0, col = 1, lty = 2, lwd = 2)
 dev.off()
